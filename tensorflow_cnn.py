@@ -43,6 +43,8 @@ def cnn_model_fn(features, labels, mode):
   dropout = tf.layers.dropout(
       inputs=dense, rate=0.4, training=mode == tf.estimator.ModeKeys.TRAIN)
 
+  tf.summary.scalar('dropout_keep_probability', 0.4)    
+
   # Logits Layer
   logits = tf.layers.dense(inputs=dropout, units=10)
 
